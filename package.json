@@ -1,0 +1,20 @@
+{
+  "name": "@mdbarr/skyfall-plugin-slack",
+  "version": "0.1.0",
+  "description": "Slack Messaging plugin for Skyfall",
+  "main": "index.js",
+  "repository": "git@github.com:mdbarr/skyfall-plugin-slack.git",
+  "author": "Mark Barr <mark@hyperingenuity.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@slack/rtm-api": "^5.0.1",
+    "@slack/web-api": "^5.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1"
+  },
+  "scripts": {
+    "lint": "eslint index.js"
+  }
+}
