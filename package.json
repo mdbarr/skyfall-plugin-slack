@@ -8,11 +8,11 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "@slack/rtm-api": "^5.0.3",
-    "@slack/web-api": "^5.8.0"
+    "@slack/rtm-api": "^5.0.4",
+    "@slack/web-api": "^5.8.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^7.0.0"
   },
   "scripts": {
     "lint": "eslint index.js"
