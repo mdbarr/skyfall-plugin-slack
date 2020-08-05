@@ -3,7 +3,7 @@
 const { RTMClient } = require('@slack/rtm-api');
 const { WebClient } = require('@slack/web-api');
 
-function Slack(skyfall) {
+function Slack (skyfall) {
   const connections = new Map();
   const names = new Map();
 
@@ -16,9 +16,7 @@ function Slack(skyfall) {
     return false;
   };
 
-  this.connect = function({
-    name, token
-  } = {}) {
+  this.connect = function({ name, token } = {}) {
     const id = skyfall.utils.id();
     const web = new WebClient(token);
     const rtm = new RTMClient(token);
@@ -28,9 +26,9 @@ function Slack(skyfall) {
       name,
       self: null,
       team: null,
-      get connected() {
+      get connected () {
         return rtm.connected;
-      }
+      },
     };
     connections.set(id, connection);
     names.set(name, connection);
@@ -39,7 +37,7 @@ function Slack(skyfall) {
       skyfall.events.emit({
         type: `slack:${ name }:${ type }`,
         data: event,
-        source: id
+        source: id,
       });
     });
 
@@ -47,7 +45,7 @@ function Slack(skyfall) {
       skyfall.events.emit({
         type: `slack:${ name }:connecting`,
         data: connection,
-        source: id
+        source: id,
       });
     });
 
@@ -55,7 +53,7 @@ function Slack(skyfall) {
       skyfall.events.emit({
         type: `slack:${ name }:connected`,
         data: connection,
-        source: id
+        source: id,
       });
     });
 
@@ -63,7 +61,7 @@ function Slack(skyfall) {
       skyfall.events.emit({
         type: `slack:${ name }:error`,
         data: error,
-        source: id
+        source: id,
       });
     });
 
@@ -72,9 +70,7 @@ function Slack(skyfall) {
     });
 
     return rtm.start().
-      then(({
-        self, team
-      }) => {
+      then(({ self, team }) => {
         connection.self = self;
         connection.team = team;
 
@@ -87,5 +83,5 @@ module.exports = {
   name: 'slack',
   install: (skyfall, options) => {
     skyfall.slack = new Slack(skyfall, options);
-  }
+  },
 };
