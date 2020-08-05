@@ -1,5 +1,5 @@
 {
-  "name": "@mdbarr/skyfall-plugin-slack",
+  "name": "@hyperingenuity/skyfall-plugin-slack",
   "version": "0.1.0",
   "description": "Slack Messaging plugin for Skyfall",
   "main": "index.js",
